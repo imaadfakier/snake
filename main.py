@@ -40,7 +40,10 @@ while not game_over:
 
     # detect wall collision
     if (snake.head.xcor() > 290) or (snake.head.xcor() < -290) or (snake.head.ycor() > 290) or (snake.head.ycor() < -290):
-        game_over = scoreboard.game_has_ended()
+        # game_over = scoreboard.game_has_ended()
+        # game_over = True
+        scoreboard.reset_high_score()
+        snake.reset_position()
 
     # detect tail collision
     # if head collides with any segment in the tail:
@@ -48,7 +51,10 @@ while not game_over:
     for snake_segment in snake.snake_segments[:len(snake.snake_segments) - 1:]:  # slicing; [start:up to but not includi
                                                                                  # -ng:increment]
         if snake.head.distance(snake_segment) < 10:
-            game_over = scoreboard.game_has_ended()
+            # game_over = scoreboard.game_has_ended()
+            # game_over = True
+            scoreboard.reset_high_score()
+            snake.reset_position()
 
 screen.exitonclick()
 

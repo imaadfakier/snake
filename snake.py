@@ -74,6 +74,14 @@ class Snake:
     def extend(self):
         self.add_snake_segment(position=self.snake_segments[0].position())
 
+    def reset_position(self):
+        for snake_segment in self.snake_segments:
+            # print(snake_segment)
+            snake_segment.goto(700, 700)
+        self.snake_segments.clear()
+        self.create_snake()
+        self.head = self.snake_segments[-1]
+
     # if __name__ == 'main':  # must be '__main__'
     if __name__ == '__main__':
         print('Running snake module - not main.py file')
